@@ -2,10 +2,7 @@ import 'package:chathai/Services/services.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: ChatScreen(),
-  ));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: ChatScreen()));
 }
 
 class ChatScreen extends StatefulWidget {
@@ -43,7 +40,11 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("ChatHai")),
+      appBar: AppBar(
+        title: Text("ChatHai"),
+        backgroundColor: Colors.grey[400],
+        centerTitle: true,
+      ),
       body: Column(
         children: [
           Expanded(
@@ -72,13 +73,8 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           Row(
             children: [
-              Expanded(
-                child: TextField(controller: _controller),
-              ),
-              IconButton(
-                icon: Icon(Icons.send),
-                onPressed: sendMessage,
-              )
+              Expanded(child: TextField(controller: _controller)),
+              IconButton(icon: Icon(Icons.send), onPressed: sendMessage),
             ],
           ),
         ],
